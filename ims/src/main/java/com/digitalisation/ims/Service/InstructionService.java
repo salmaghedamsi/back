@@ -24,6 +24,11 @@ public class InstructionService {
         return instructionRepository.findAll();
     }
 
+    public instruction getInstructionById(String id) {
+        return instructionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Instruction not found"));
+    }
+
     public instruction saveInstruction(instruction instruction) {
         return instructionRepository.save(instruction);
     }

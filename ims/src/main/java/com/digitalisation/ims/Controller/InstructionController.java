@@ -17,15 +17,23 @@ import java.util.List;
 public class InstructionController {
     private final InstructionService instructionService;
     @GetMapping
-    public ResponseEntity<List<instruction>> getAllActions() {
-        List<instruction> actions = instructionService.getAllInstructions();
-        return ResponseEntity.ok(actions);
+    public ResponseEntity<List<instruction>> getAllInstructions() {
+        List<instruction> instructions = instructionService.getAllInstructions();
+        return ResponseEntity.ok(instructions);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<instruction> getInstructionById(@PathVariable String id) {
+        instruction instruction = instructionService.getInstructionById(id);
+        return ResponseEntity.ok(instruction);
+    }
+
     @PostMapping
     public ResponseEntity<instruction> createInstruction(@RequestBody instruction instruction) {
         instruction savedInstruction = instructionService.saveInstruction(instruction);
         return ResponseEntity.ok(savedInstruction);
     }
+
     @GetMapping("/{id}/responsable")
     public ResponseEntity<user> getResponsableForInstruction(@PathVariable String id) {
         user user = instructionService.getResponsableForInstruction(id);

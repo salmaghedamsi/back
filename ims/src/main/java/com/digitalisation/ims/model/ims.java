@@ -3,6 +3,7 @@ package com.digitalisation.ims.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,5 +29,6 @@ public class ims {
     private String audit;
     @Column(name="sucesscheck")
     private String sucesscheck;
-
 }
+
+
