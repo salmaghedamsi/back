@@ -13,7 +13,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("instruction")
+@RequestMapping("/instruction")
 public class InstructionController {
     private final InstructionService instructionService;
     @GetMapping
@@ -33,12 +33,4 @@ public class InstructionController {
         instruction savedInstruction = instructionService.saveInstruction(instruction);
         return ResponseEntity.ok(savedInstruction);
     }
-
-    @GetMapping("/{id}/responsable")
-    public ResponseEntity<user> getResponsableForInstruction(@PathVariable String id) {
-        user user = instructionService.getResponsableForInstruction(id);
-        return ResponseEntity.ok(user);
-    }
-
-
     }

@@ -22,14 +22,14 @@ public class instruction {
     private String main_changes;
     @Column(name = "process")
     private String process;
-    @Column(name = "statut_etude_impact")
+    @Column(name = "statut_etude_empact")
     private Integer StatutEI;
     @Column(name = "taux_de_retard")
     private Integer TauxdeRetard;
-    @Column(name = "responsableEi")
-    private Integer responsable;
+    private String responsable;
     @ManyToOne
-    @JoinColumn(name = "ims_id")
-    private ims ims;
+    @JoinColumn(name = "imsId")
+    private ims imsId;
+
 }
 
